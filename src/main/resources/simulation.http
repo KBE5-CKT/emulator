@@ -1,0 +1,11 @@
+### 시뮬레이션 시작
+POST http://localhost:8080/simulation/on
+Content-Type: application/json
+
+{}
+
+### 시뮬레이션 중지
+POST http://localhost:8080/simulation/off
+Content-Type: application/json
+
+{}
