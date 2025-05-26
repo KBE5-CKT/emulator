@@ -2,10 +2,9 @@ package org.ckt.emulator.simulation.ui;
 
 import lombok.RequiredArgsConstructor;
 import org.ckt.emulator.simulation.application.GpsSimulationService;
+import org.ckt.emulator.simulation.ui.dto.GpsSimulationRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/simulation")
@@ -14,8 +13,15 @@ public class SimulationController {
     private final GpsSimulationService gpsSimulationService;
 
     @PostMapping("/on")
-    public ResponseEntity<Void> on() {
-        gpsSimulationService.startSimulation();
+    public ResponseEntity<Void> startSimulation(
+            @RequestBody GpsSimulationRequest gpsSimulationRequest
+    ) {
+        gpsSimulationService.startSimulation(
+                gpsSimulationRequest.startLat(),
+                gpsSimulationRequest.startLon(),
+                gpsSimulationRequest.endLat(),
+                gpsSimulationRequest.endLon()
+        );
         return ResponseEntity.ok().build();
     }
 

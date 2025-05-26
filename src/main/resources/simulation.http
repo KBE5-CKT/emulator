@@ -2,7 +2,12 @@
 POST http://localhost:8080/simulation/on
 Content-Type: application/json
 
-{}
+{
+  "startLat": 37.5665,
+  "startLon": 126.9780,
+  "endLat": 36.3504,
+  "endLon": 127.3845
+}
 
 ### 시뮬레이션 중지
 POST http://localhost:8080/simulation/off

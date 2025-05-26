@@ -1,0 +1,5 @@
+spring.application.name: emulator
+
+naver.api:
+  client-id: ${NAVER_CLIENT_ID}
+  client-secret: ${NAVER_CLIENT_SECRET}
